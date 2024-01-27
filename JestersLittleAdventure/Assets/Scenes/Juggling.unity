@@ -157,7 +157,6 @@ MonoBehaviour:
   noteLayer:
     serializedVersion: 2
     m_Bits: 960
-  hp: 5
   fail: {fileID: 171469824}
   juggler: {fileID: 769590464}
 --- !u!212 &171469822
@@ -780,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87841e15673be804a8707224026adcc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugglerHp: 5
+  jugglerHp: 10
   text: {fileID: 1066091507}
 --- !u!4 &769590466
 Transform:
@@ -1476,7 +1475,7 @@ MonoBehaviour:
   - {fileID: 4716534655453673743, guid: d22cb1c2c4915514db2cf3581fd9c187, type: 3}
   - {fileID: 2876923373101342416, guid: a3446a8b72aea1e45a3051a218baf537, type: 3}
   - {fileID: 6157464427960914391, guid: 7d5893eb115105d4c925b200ffe6cdff, type: 3}
-  wavecooldown: 3
+  wavecooldown: 3.5
   currentWaveCooldown: 0
   wavesLeft: 10
 --- !u!4 &4432384590231842078

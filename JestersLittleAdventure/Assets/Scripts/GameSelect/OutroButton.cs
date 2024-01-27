@@ -9,7 +9,7 @@ public class OutroButton : MonoBehaviour
     {
         if(GameManager.Instance.archeryCompleted != true||
            GameManager.Instance.jugglingCompleted != true||
-           GameManager.Instance.jugglingCompleted != true)
+           GameManager.Instance.picturepuzzleCompleted != true)
         {
             this.gameObject.SetActive(false);
         }
