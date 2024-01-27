@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ArrowMovementController : MonoBehaviour
+public class PigeonShitMovementController : MonoBehaviour
 {
     [SerializeField] 
-    private float arrowDisappearYPosition;
-
+    private float pigeonShitDisappearYPosition;
+    
     [SerializeField]
-    private float arrowSpeed;
+    private float pigeonShitSpeed;
     
     private Vector3 actualPosition;
     
@@ -20,14 +21,13 @@ public class ArrowMovementController : MonoBehaviour
     void Update()
     {
         this.actualPosition = transform.position;
-        
-        if (this.actualPosition.y > arrowDisappearYPosition)
+        if (this.actualPosition.y < pigeonShitDisappearYPosition)
         {
             Destroy(gameObject);
             return;
         }
-        
-        this.MoveVertical();
+
+        MoveVertical();
     }
     
     private void MoveVertical()
@@ -40,6 +40,17 @@ public class ArrowMovementController : MonoBehaviour
 
     private float CalculateNewYPosition()
     {        
-        return this.actualPosition.y + 1f * this.arrowSpeed * Time.deltaTime;
+        return this.actualPosition.y - 1f * this.pigeonShitSpeed * Time.deltaTime;
+    }
+    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        var collisionObject = collision.gameObject;
+        if (collisionObject.CompareTag("Player"))
+        {
+            GameManager.Instance.ActualArcheryHealth -= 1;
+
+            Destroy(gameObject);
+        }
     }
 }
