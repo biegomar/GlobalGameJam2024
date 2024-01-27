@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class NoteList : MonoBehaviour
+public class NoteSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> wavePrefabList;
     [SerializeField] private float wavecooldown;
@@ -17,6 +18,12 @@ public class NoteList : MonoBehaviour
         {
             SendWave();
             currentWaveCooldown = wavecooldown;
+        }
+
+        if(currentWaveCooldown <= -3)
+        {
+            GameManager.Instance.jugglingCompleted = true;
+            SceneManager.LoadScene(1);
         }
     }
 
