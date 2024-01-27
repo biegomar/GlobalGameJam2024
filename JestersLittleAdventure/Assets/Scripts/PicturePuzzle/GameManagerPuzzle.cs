@@ -10,7 +10,8 @@ public class GameManagerPuzzle : MonoBehaviour
 
     void Start()
     {
-           _camera = Camera.main;   
+        _camera = Camera.main;
+        Scramblingpuzzles();
     }
 
 
@@ -29,6 +30,20 @@ public class GameManagerPuzzle : MonoBehaviour
                     emptySpace.position = hit.transform.position;
                     hit.transform.position = lastEmptySpacePosition;
                 }
+            }
+        }
+    }
+
+    public void Scramblingpuzzles()
+    {
+        for (int i = 0; i < 14; i++) 
+        {
+            if (tiles[i] != null)
+            {
+                var lastpos = tiles[i].targetPosition;
+                int randomIndex = Random.Range(0, 14);
+                tiles[i].targetPosition = tiles[randomIndex].targetPosition;
+                tiles[randomIndex].targetPosition = lastpos;
             }
         }
     }
