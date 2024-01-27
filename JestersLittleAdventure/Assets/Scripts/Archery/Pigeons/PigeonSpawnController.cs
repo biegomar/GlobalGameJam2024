@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Archery.Pigeons;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonSpawnController : MonoBehaviour
 {
@@ -18,7 +20,6 @@ public class PigeonSpawnController : MonoBehaviour
     private bool IsFirstFormationReleased;
     private bool IsSecondFormationReleased;
     private bool IsThirdFormationReleased;
-    private bool IsFourthFormationReleased;
     private bool IsWaveSpawned;
     
     private Vector2 startPositionLeft;
@@ -35,6 +36,14 @@ public class PigeonSpawnController : MonoBehaviour
         {
             this.SpawnWave();
         }
+        else
+        {
+            if (!this.Pigeons.Any())
+            {
+                GameManager.Instance.archeryCompleted = true;
+                SceneManager.LoadScene(1);
+            }
+        }
     }
 
     private void InitializeWave()
@@ -47,7 +56,6 @@ public class PigeonSpawnController : MonoBehaviour
         this.IsFirstFormationReleased = false;
         this.IsSecondFormationReleased = false;
         this.IsThirdFormationReleased = false;
-        this.IsFourthFormationReleased = false;
         this.IsWaveSpawned = false;
         
         this.Pigeons = new Dictionary<int, PigeonItem>();
@@ -72,7 +80,6 @@ public class PigeonSpawnController : MonoBehaviour
         if (!this.IsThirdFormationReleased && WaveTimer > 3f && WaveTimer < 3.1f)
         {
             this.SpawnWaveInternal();
-            IsThirdFormationReleased = true;
             this.IsWaveSpawned = true;
         }
     }
