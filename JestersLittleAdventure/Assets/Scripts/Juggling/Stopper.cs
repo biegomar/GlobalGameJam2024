@@ -5,7 +5,6 @@ using UnityEngine;
 public class Stopper : MonoBehaviour
 {
     [SerializeField] private LayerMask noteLayer;
-    [SerializeField] public int hp;
     [SerializeField] AudioSource fail;
     [SerializeField] Juggler juggler;
 
