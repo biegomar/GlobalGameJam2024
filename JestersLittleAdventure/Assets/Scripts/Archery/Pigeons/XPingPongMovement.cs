@@ -13,7 +13,7 @@ namespace Archery.Pigeons
         
         public XPingPongMovement(Vector2 initialPosition)
         {
-            this.pingPongSpeed = UnityEngine.Random.Range(-1f, 2f) + GameManager.Instance.EnemyWaveThreeYBaseSpeed;
+            this.pingPongSpeed = UnityEngine.Random.Range(-1f, 2f) + GameManager.Instance.PigeonWaveYBaseSpeed;
             this.startPosition = initialPosition;
         }
         public float CalculateNewXPosition(GameObject gameObject)
