@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class NoteList : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<GameObject> wavePrefabList;
+    [SerializeField] private float wavecooldown;
+    [SerializeField] private float currentWaveCooldown;
+    [SerializeField] private int wavesLeft;
+
+    private void Update()
     {
-        
+        currentWaveCooldown -= Time.deltaTime;
+
+        if (currentWaveCooldown <= 0 && wavesLeft > 0)
+        {
+            SendWave();
+            currentWaveCooldown = wavecooldown;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SendWave()
     {
-        
-    }
+        int randomwave = Random.Range(0, wavePrefabList.Count);
+        Instantiate(wavePrefabList[randomwave], this.transform.position, wavePrefabList[randomwave].transform.rotation);
+        wavesLeft -= 1;
+    } 
 }
