@@ -684,8 +684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  leftBorderPosition: -6.8
-  rightBorderPosition: 6.8
+  leftBorderPosition: -6.5
+  rightBorderPosition: 6.5
   animator: {fileID: 1673002457}
 --- !u!4 &1673002454
 Transform:
