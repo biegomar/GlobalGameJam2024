@@ -12,7 +12,6 @@ public class ArrowMovementController : MonoBehaviour
     
     private Vector3 actualPosition;
     
-    // Start is called before the first frame update
     void Start()
     {
         this.actualPosition = transform.position;
