@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class NoteList : MonoBehaviour
 {
-    [SerializeField] private List<int> notePositionList;
-    [SerializeField] private GameObject notePrefab;
-    [SerializeField] private GameObject endNotePrefab;
+    [SerializeField] private List<GameObject> wavePrefabList;
+    [SerializeField] private float wavecooldown;
+    [SerializeField] private float currentWaveCooldown;
+    [SerializeField] private int wavesLeft;
 
-    void Start()
+    private void Update()
     {
-        for (int i = 0; i < notePositionList.Count; i++)
+        currentWaveCooldown -= Time.deltaTime;
+
+        if (currentWaveCooldown <= 0 && wavesLeft > 0)
         {
-            if(i == notePositionList.Count - 1)
-            {
-                Vector2 position = new Vector2(notePositionList[i], this.transform.position.y);
-                Instantiate(endNotePrefab, position, endNotePrefab.transform.rotation);
-            }
-            else
-            {
-                Vector2 position = new Vector2(notePositionList[i], this.transform.position.y);
-                Instantiate(notePrefab, position, notePrefab.transform.rotation);
-            }
+            SendWave();
+            currentWaveCooldown = wavecooldown;
         }
     }
+
+    void SendWave()
+    {
+        int randomwave = Random.Range(0, wavePrefabList.Count);
+        Instantiate(wavePrefabList[randomwave], this.transform.position, wavePrefabList[randomwave].transform.rotation);
+        wavesLeft -= 1;
+    } 
 }
