@@ -43,12 +43,6 @@ public class PigeonWaveMovementController : MonoBehaviour
             transform.position.z);
 
         TryToSwitchToXPingPongMovement();
-
-        if (!enemyController.Pigeons.Any())
-        {
-            GameManager.Instance.archeryCompleted = true;
-            SceneManager.LoadScene(1);
-        }
     }
     
     public void OnTriggerEnter2D(Collider2D collision)
