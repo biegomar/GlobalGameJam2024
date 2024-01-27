@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1fb4fc2967f095145970b836fa5ce45b
+  - enabled: 1
+    path: Assets/Scenes/GameSelect.unity
+    guid: 780b681f1c5abc841bc38fdb06a02ecf
+  - enabled: 1
+    path: Assets/Scenes/Archery.unity
+    guid: d9578796f5187024f9d83348e4d66d38
+  - enabled: 1
+    path: Assets/Scenes/Jougling.unity
+    guid: add4b4e44f7488742a5e0041afc472a7
+  - enabled: 1
+    path: Assets/Scenes/PicturePuzzle.unity
+    guid: 442129128cc192540b150fabc5f0104a
   m_configObjects: {}
