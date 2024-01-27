@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    private Rigidbody2D rigidbody;
-    [SerializeField] private float speed;
-    [SerializeField] private Stopper stopper;
+    protected Rigidbody2D rigidbody;
+    [SerializeField] protected float speed;
 
-    void Start()
+    protected void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.AddForce(new Vector2(-speed, 0), ForceMode2D.Impulse);
     }
 
-    private void Update()
+    protected void Update()
     {
         if(this.transform.position.x <= -8)
         {
-            stopper.TakeDamage();
+            GameManager.Instance.JugglerTakeDamage();
             Destroy(this.gameObject);
         }
     }
