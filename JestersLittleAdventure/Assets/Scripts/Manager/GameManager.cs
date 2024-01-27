@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,14 @@ public sealed class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     
     public float EnemyWaveThreeYBaseSpeed = 3f;
+    public int ActualArcheryHealth { get => actualArcheryHealth; set => actualArcheryHealth = Math.Max(0,value); }
 
     public bool archeryCompleted = false;
     public bool jugglingCompleted = false;
     public bool picturepuzzleCompleted = false;
 
     private int JugglerHp;
+    private int actualArcheryHealth;
 
     void Awake()
     {
