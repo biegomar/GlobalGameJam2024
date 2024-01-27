@@ -8,6 +8,8 @@ public class GameManagerPuzzle : MonoBehaviour
     private Camera _camera;
     [SerializeField] private TilesMoves[] tiles;
 
+    private int emptySpaceIndex = 15;
+
     void Start()
     {
         _camera = Camera.main;
@@ -29,6 +31,10 @@ public class GameManagerPuzzle : MonoBehaviour
                     TilesMoves thisTile = hit.transform.GetComponent<TilesMoves>();
                     emptySpace.position = hit.transform.position;
                     thisTile.targetPosition = lastEmptySpacePosition;
+                    int tileIndex = findIndex(thisTile);
+                    tiles[emptySpaceIndex] = tiles[tileIndex];
+                    tiles[tileIndex] = null;
+                    emptySpaceIndex = tileIndex;
                 }
             }
         }
@@ -36,15 +42,64 @@ public class GameManagerPuzzle : MonoBehaviour
 
     public void Scramblingpuzzles()
     {
-        for (int i = 0; i <= 14; i++) 
+        if (emptySpaceIndex != 15)
         {
-            if (tiles[i] != null)
+            var tileon15LastPos = tiles[15].targetPosition;
+            tiles[15].targetPosition = emptySpace.position;
+            emptySpace.position = tileon15LastPos;
+            tiles[15] = null;
+            emptySpaceIndex = 15;
+        }
+
+        int invertion;
+        do
+        {
+            for (int i = 0; i <= 14; i++)
             {
-                var lastpos = tiles[i].targetPosition;
-                int randomIndex = Random.Range(0, 14);
-                tiles[i].targetPosition = tiles[randomIndex].targetPosition;
-                tiles[randomIndex].targetPosition = lastpos;
+                if (tiles[i] != null)
+                {
+                    var lastpos = tiles[i].targetPosition;
+                    int randomIndex = Random.Range(0, 14);
+                    tiles[i].targetPosition = tiles[randomIndex].targetPosition;
+                    tiles[randomIndex].targetPosition = lastpos;
+                    var tile = tiles[i];
+                    tiles[i] = tiles[randomIndex];
+                    tiles[randomIndex] = tile;
+                }
+            }
+            invertion = GetInversions();
+            Debug.Log("Shuffled");
+        } while (invertion% !=0);
+
+        int rightTilePos = 0;
+        foreach (var a in tiles)
+        {
+            if (a != null)
+            {
+                if (a.isInOriginalPos)
+                {
+                    rightTilePos++;
+                }
             }
         }
+        if (rightTilePos == tiles.Length - 1)
+        {
+            Debug.Log("Winner");
+        }
+    }
+
+    public int findIndex(TilesMoves ts)
+    {
+        for (int i =0; i<tiles.Length; i++) 
+        { 
+            if (tiles[i] != null)
+            { 
+                if (tiles[i] == ts)
+                {
+                    return i;
+                } 
+            }
+        }
+        return -1;
     }
 }

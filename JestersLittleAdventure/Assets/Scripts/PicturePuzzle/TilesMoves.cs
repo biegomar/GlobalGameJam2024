@@ -7,6 +7,8 @@ public class TilesMoves : MonoBehaviour
 { 
     public Vector3 targetPosition;
     private Vector3 OriginalPosition;
+    public bool isInOriginalPos;
+    public int number;
  
     // Start is called before the first frame update
     void Awake()
@@ -21,11 +23,13 @@ public class TilesMoves : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f);
         if (targetPosition == OriginalPosition)
         {
-            //Debug.Log("yay"); THIS ACTUALLY SPAMMS!
+            //Debug.Log("yay"); the debug is spamming...
+            isInOriginalPos = true;
         }
         else
         {
             //checkwin = false;
+            isInOriginalPos = false;
         }
     }
 }
