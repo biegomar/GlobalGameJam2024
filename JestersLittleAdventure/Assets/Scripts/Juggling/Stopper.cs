@@ -11,7 +11,8 @@ public class Stopper : MonoBehaviour
 
     public void Start()
     {
-       text.text = "Current HP: " + hp;
+        text.text = "Current HP: " + hp;
+        GameManager.Instance.SetJugglerHp(hp);
     }
 
     void Update()
@@ -22,18 +23,14 @@ public class Stopper : MonoBehaviour
 
             if(note == null)
             {
-                TakeDamage();
+                GameManager.Instance.JugglerTakeDamage();
             }
             else
             {
                 Destroy(note.gameObject);
             }
         }
-    }
 
-    public void TakeDamage()
-    {
-        hp -= 1;
         text.text = "Current HP: " + hp;
     }
 }
