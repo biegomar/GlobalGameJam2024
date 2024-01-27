@@ -23,7 +23,7 @@ public class TilesMoves : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f);
         if (targetPosition == OriginalPosition)
         {
-            //Debug.Log("yay"); the debug is spamming...
+            //Debug.Log("yay"); //the debug is spamming...
             isInOriginalPos = true;
         }
         else

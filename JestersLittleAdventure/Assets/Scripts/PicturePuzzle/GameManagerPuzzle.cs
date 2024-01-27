@@ -13,7 +13,7 @@ public class GameManagerPuzzle : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-        Scramblingpuzzles();
+        //Scramblingpuzzles();
     }
 
 
@@ -69,7 +69,7 @@ public class GameManagerPuzzle : MonoBehaviour
             }
             invertion = GetInversions();
             Debug.Log("Shuffled");
-        } while (invertion% !=0);
+        } while (invertion % 2 != 0);
 
         int rightTilePos = 0;
         foreach (var a in tiles)
@@ -101,5 +101,26 @@ public class GameManagerPuzzle : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    int GetInversions()
+    {
+        int inversionsSum = 0;
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            int thisTileInvertion = 0;
+            for (int j = i; j < tiles.Length; j++)
+            {
+                if (tiles[j] != null)
+                {
+                    if (tiles[i].number > tiles[j].number)
+                    {
+                        thisTileInvertion++;
+                    }
+                }
+            }
+            inversionsSum += thisTileInvertion;
+        }
+        return inversionsSum;
     }
 }
