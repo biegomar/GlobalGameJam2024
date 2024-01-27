@@ -6,6 +6,7 @@ public class Note : MonoBehaviour
 {
     protected Rigidbody2D rigidbody;
     [SerializeField] protected float speed;
+    [SerializeField] protected AudioSource fail;
 
     protected void Start()
     {
@@ -17,7 +18,10 @@ public class Note : MonoBehaviour
     {
         if(this.transform.position.x <= -8)
         {
-            GameManager.Instance.JugglerTakeDamage();
+            fail.Play();
+
+            FindObjectOfType<Juggler>().JugglerTakeDamage();
+
             Destroy(this.gameObject);
         }
     }

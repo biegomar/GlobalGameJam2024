@@ -1,29 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Stopper : MonoBehaviour
 {
     [SerializeField] private LayerMask noteLayer;
     [SerializeField] public int hp;
-    [SerializeField] TMP_Text text;
+    [SerializeField] AudioSource fail;
+    [SerializeField] Juggler juggler;
 
-    public void Start()
-    {
-        text.text = "Current HP: " + hp;
-        GameManager.Instance.SetJugglerHp(hp);
-    }
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            Collider2D note = Physics2D.OverlapBox(this.transform.position, new Vector2(0.3f, 2), 0, noteLayer);
+        Collider2D note = Physics2D.OverlapBox(this.transform.position, new Vector2(0.3f, 2), 0, noteLayer);
 
-            if(note == null)
+        if (Input.GetKeyDown("up"))
+        {
+            if(note == null || note.gameObject.layer != 6)
             {
-                GameManager.Instance.JugglerTakeDamage();
+                juggler.JugglerTakeDamage();
+                fail.Play();
             }
             else
             {
@@ -31,6 +27,43 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        text.text = "Current HP: " + hp;
+        if (Input.GetKeyDown("down"))
+        {
+            if (note == null || note.gameObject.layer != 7)
+            {
+                juggler.JugglerTakeDamage();
+                fail.Play();
+            }
+            else
+            {
+                Destroy(note.gameObject);
+            }
+        }
+
+        if (Input.GetKeyDown("left"))
+        {
+            if (note == null || note.gameObject.layer != 8)
+            {
+                juggler.JugglerTakeDamage();
+                fail.Play();
+            }
+            else
+            {
+                Destroy(note.gameObject);
+            }
+        }
+
+        if (Input.GetKeyDown("right"))
+        {
+            if (note == null || note.gameObject.layer != 9)
+            {
+                juggler.JugglerTakeDamage();
+                fail.Play();
+            }
+            else
+            {
+                Destroy(note.gameObject);
+            }
+        }
     }
 }
