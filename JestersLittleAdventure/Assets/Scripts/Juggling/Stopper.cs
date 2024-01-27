@@ -14,7 +14,7 @@ public class Stopper : MonoBehaviour
     {
         Collider2D note = Physics2D.OverlapBox(this.transform.position, new Vector2(0.3f, 2), 0, noteLayer);
 
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
         {
             if(note == null || note.gameObject.layer != 6)
             {
@@ -27,7 +27,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("down"))
+        if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
         {
             if (note == null || note.gameObject.layer != 7)
             {
@@ -40,7 +40,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
         {
             if (note == null || note.gameObject.layer != 8)
             {
@@ -53,7 +53,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
         {
             if (note == null || note.gameObject.layer != 9)
             {
