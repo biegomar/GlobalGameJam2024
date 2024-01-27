@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class NoteList : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private List<int> notePositionList;
+    [SerializeField] private GameObject notePrefab;
+    [SerializeField] private GameObject endNotePrefab;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < notePositionList.Count; i++)
+        {
+            if(i == notePositionList.Count - 1)
+            {
+                Vector2 position = new Vector2(notePositionList[i], this.transform.position.y);
+                Instantiate(endNotePrefab, position, endNotePrefab.transform.rotation);
+            }
+            else
+            {
+                Vector2 position = new Vector2(notePositionList[i], this.transform.position.y);
+                Instantiate(notePrefab, position, notePrefab.transform.rotation);
+            }
+        }
     }
 }

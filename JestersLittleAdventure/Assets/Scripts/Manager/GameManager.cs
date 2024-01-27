@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class GameManager : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public sealed class GameManager : MonoBehaviour
         JugglerHp -= 1;
         if (JugglerHp <= 0)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            SceneManager.LoadScene(1);
         }
     }
 

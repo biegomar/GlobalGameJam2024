@@ -31,6 +31,6 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        text.text = "Current HP: " + hp;
+        text.text = "Current HP: " + GameManager.Instance.GetJugglerHp();
     }
 }

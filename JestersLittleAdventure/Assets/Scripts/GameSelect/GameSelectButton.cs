@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class Button : MonoBehaviour
+public class GameSelectButton : MonoBehaviour
 { 
     private bool finished;
 
