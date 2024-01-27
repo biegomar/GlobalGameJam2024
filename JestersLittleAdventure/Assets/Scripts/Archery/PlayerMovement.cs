@@ -15,13 +15,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float rightBorderPosition;
 
-    private Rigidbody2D Rigidbody;
+    [SerializeField]
+    private Animator animator;
+    
     private Vector3 actualPosition;
+    private static readonly int Speed = Animator.StringToHash("Speed");
 
     private void Start()
     {
         this.actualPosition = transform.position;
-        this.Rigidbody = GetComponent<Rigidbody2D>();
     }
     
     void Update()
@@ -39,8 +41,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private float CalculateNewXPosition()
-    {        
-        return Math.Clamp(this.actualPosition.x + Input.GetAxis("Horizontal") * this.speed * Time.deltaTime, 
+    {
+        var localSpeed = Input.GetAxis("Horizontal") * this.speed * Time.deltaTime;
+
+        if (localSpeed != 0f)
+        {
+            Debug.Log($"Speed: {localSpeed}");    
+        }
+        
+        
+        this.animator.SetFloat(Speed, localSpeed);
+        
+        return Math.Clamp(this.actualPosition.x + localSpeed, 
             leftBorderPosition, 
             rightBorderPosition);
     }
