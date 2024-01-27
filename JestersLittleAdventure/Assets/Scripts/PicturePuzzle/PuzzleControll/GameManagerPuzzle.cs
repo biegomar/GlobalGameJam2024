@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GameManagerPuzzle : MonoBehaviour
 {
-    //HEHE STUFFTRANSFORM
-    [SerializeField] private Transform stuffTransform;
-    [SerializeField] private Transform PrefabPieces;
+
+    [SerializeField] private GameObject PrefabPieces;
+    [SerializeField] private Vector3 StartPosition;
 
     private int emptySpace;
     [Header("exclemation factorial number")]
@@ -30,11 +30,11 @@ public class GameManagerPuzzle : MonoBehaviour
         {
             for (int col = 0; col < size; col++) 
             {
-                Transform puzzlePiece = Instantiate(PrefabPieces, stuffTransform);
+                var puzzlePiece = Instantiate(PrefabPieces, StartPosition, Quaternion.identity);
 
-                puzzlePiece.localPosition = new Vector3((2 * width * col) + width,
+                puzzlePiece.transform.localPosition = new Vector3((2 * width * col) + width,
                                                         (2 * width * row) - width, 0);
-                puzzlePiece.localScale = ((2 * width) - gapboarder) * Vector3.one;
+                puzzlePiece.transform.localScale = ((2 * width) - gapboarder) * Vector3.one;
 
                 if ((row == size - 1) && (col == size - 1))
                 {
