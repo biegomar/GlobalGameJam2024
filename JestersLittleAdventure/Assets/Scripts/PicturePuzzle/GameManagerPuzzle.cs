@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManagerPuzzle : MonoBehaviour
 {
-    [SerializeField] private Transform emptySpace = null;
+    [SerializeField] private Transform emptySpace;
     private Camera _camera;
     [SerializeField] private TilesMoves[] tiles;
 
@@ -23,7 +23,7 @@ public class GameManagerPuzzle : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit)    
             {
-                if (Vector2.Distance(emptySpace.position, hit.transform.position) < 1.5)
+                if (Vector2.Distance(emptySpace.position, hit.transform.position) < 1.3)
                 {
                     Vector2 lastEmptySpacePosition = emptySpace.position;
                     TilesMoves thisTile = hit.transform.GetComponent<TilesMoves>();

@@ -21,7 +21,7 @@ public class TilesMoves : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f);
         if (targetPosition == OriginalPosition)
         {
-            Debug.Log("yay");
+            //Debug.Log("yay"); THIS ACTUALLY SPAMMS!
         }
         else
         {
