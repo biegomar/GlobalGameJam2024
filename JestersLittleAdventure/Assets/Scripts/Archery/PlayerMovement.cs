@@ -2,20 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private int Speed;
-
+    private float speed;
+    
     [SerializeField]
-    private float Velocity;
+    private float leftBorderPosition;
+    
+    [SerializeField]
+    private float rightBorderPosition;
 
     private Rigidbody2D Rigidbody;
     private Vector3 actualPosition;
 
     private void Start()
     {
+        this.actualPosition = transform.position;
         this.Rigidbody = GetComponent<Rigidbody2D>();
     }
     
@@ -35,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float CalculateNewXPosition()
     {        
-        return this.actualPosition.x + Input.GetAxis("Horizontal") * this.Speed * Time.deltaTime;
+        return Math.Clamp(this.actualPosition.x + Input.GetAxis("Horizontal") * this.speed * Time.deltaTime, 
+            leftBorderPosition, 
+            rightBorderPosition);
     }
 }
