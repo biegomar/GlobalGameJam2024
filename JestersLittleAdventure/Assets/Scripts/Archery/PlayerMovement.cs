@@ -43,12 +43,6 @@ public class PlayerMovement : MonoBehaviour
     private float CalculateNewXPosition()
     {
         var localSpeed = Input.GetAxis("Horizontal") * this.speed * Time.deltaTime;
-
-        if (localSpeed != 0f)
-        {
-            Debug.Log($"Speed: {localSpeed}");    
-        }
-        
         
         this.animator.SetFloat(Speed, localSpeed);
         

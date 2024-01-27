@@ -5,6 +5,8 @@ using UnityEngine;
 public sealed class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
+    
+    public float EnemyWaveThreeYBaseSpeed = 3f;
 
     public bool archeryCompleted = false;
     public bool jugglingCompleted = false;
