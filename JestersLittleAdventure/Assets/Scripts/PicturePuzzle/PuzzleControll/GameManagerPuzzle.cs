@@ -10,11 +10,11 @@ public class GameManagerPuzzle : MonoBehaviour
     [SerializeField] private Transform PrefabPieces;
 
     private int emptySpace;
-    private int size;
-
+    [Header("exclemation factorial number")]
+    [SerializeField] private int size = 4;
+    //the amount of puzzle pieces is the product of the number of each positive number value below the number
     void Start()
     {
-        size = 4;
         createPuzzlePiece(0.1f);
     }
 
@@ -40,6 +40,10 @@ public class GameManagerPuzzle : MonoBehaviour
                 {
                     emptySpace = (size * size) - 1;
                     puzzlePiece.gameObject.SetActive(false);
+                }
+                else
+                {
+                    ;
                 }
             }
         }
