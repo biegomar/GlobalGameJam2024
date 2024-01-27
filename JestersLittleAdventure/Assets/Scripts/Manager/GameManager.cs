@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
-    public bool archeryCompleted = false;
-    public bool jugglingCompleted = false;
-    public bool picturepuzzleCompleted = false;
-
-    private int JugglerHp;
+    public bool archeryCompleted;
+    public bool jugglingCompleted;
+    public bool picturepuzzleCompleted;
 
     void Awake()
     {
@@ -25,22 +24,10 @@ public sealed class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void SetJugglerHp(int hp)
+    public void Reset()
     {
-        JugglerHp = hp;
-    }
-
-    public void JugglerTakeDamage()
-    {
-        JugglerHp -= 1;
-        if (JugglerHp <= 0)
-        {
-            Time.timeScale = 0;
-        }
-    }
-
-    public int GetJugglerHp()
-    {
-        return JugglerHp;
+        archeryCompleted = false;
+        jugglingCompleted = false;
+        picturepuzzleCompleted = false;
     }
 }
