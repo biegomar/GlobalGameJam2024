@@ -80,32 +80,30 @@ public class PigeonSpawnController : MonoBehaviour
     private void SpawnWaveInternal()
     {
         var waveId = Guid.NewGuid();
-        var gameObjects = new List<PigeonItem>();
+        //var gameObjects = new List<PigeonItem>();
         var distance = 0;
         
-        AddLeftFormationItem(waveId, distance, gameObjects);
-        AddRightFormationItem(waveId, distance, gameObjects);
+        AddLeftFormationItem(waveId, distance);
+        AddRightFormationItem(waveId, distance);
         distance += 2;
         
-        AddLeftFormationItem(waveId, distance, gameObjects);
-        AddRightFormationItem(waveId, distance, gameObjects);
+        AddLeftFormationItem(waveId, distance);
+        AddRightFormationItem(waveId, distance);
         distance += 2;
         
-        AddLeftFormationItem(waveId, distance, gameObjects);
-        AddRightFormationItem(waveId, distance, gameObjects);
+        AddLeftFormationItem(waveId, distance);
+        AddRightFormationItem(waveId, distance);
     }
     
-    private void AddLeftFormationItem(Guid waveId, int distance, List<PigeonItem> gameObjects)
+    private void AddLeftFormationItem(Guid waveId, int distance)
     {
         PigeonItem enemyItem = CreateNewEnemyItem(waveId, startPositionLeft, 2 * Vector2.left, distance);
-        gameObjects.Add(enemyItem);
         this.Pigeons.Add(enemyItem.Enemy.GetInstanceID(), enemyItem);
     }
 
-    private void AddRightFormationItem(Guid waveId, int distance, List<PigeonItem> gameObjects)
+    private void AddRightFormationItem(Guid waveId, int distance)
     {
         PigeonItem enemyItem = CreateNewEnemyItem(waveId, startPositionRight,2 * Vector2.right, distance);
-        gameObjects.Add(enemyItem);
         this.Pigeons.Add(enemyItem.Enemy.GetInstanceID(), enemyItem);
     }
     

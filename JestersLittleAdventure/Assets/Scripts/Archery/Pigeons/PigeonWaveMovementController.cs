@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Archery.Pigeons;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonWaveMovementController : MonoBehaviour
 {
@@ -41,6 +43,46 @@ public class PigeonWaveMovementController : MonoBehaviour
             transform.position.z);
 
         TryToSwitchToXPingPongMovement();
+
+        if (!enemyController.Pigeons.Any())
+        {
+            GameManager.Instance.archeryCompleted = true;
+            SceneManager.LoadScene(1);
+        }
+    }
+    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        var collisionObject = collision.gameObject;
+        
+        if (collisionObject.CompareTag("ArcheryArrow"))
+        {
+            if (pigeonItem != null)
+            {
+                pigeonItem.Health -= 1;
+                if (pigeonItem.Health <= 0)
+                {
+                    RemoveEnemyAndScore();
+                }
+            }
+
+            Destroy(collisionObject);
+        }
+    }
+    
+    private void RemoveEnemyAndScore(bool reallyScore = true)
+    {
+        RemoveEnemyFromWave();
+        Destroy(gameObject);
+    }
+    
+    private void RemoveEnemyFromWave()
+    {
+        if (enemyController.Pigeons.ContainsKey(pigeonItem.Enemy.GetInstanceID()))
+        {
+            enemyController.Pigeons.Remove(
+                new KeyValuePair<int, PigeonItem>(pigeonItem.Enemy.GetInstanceID(), pigeonItem));
+        }
     }
     
     private float CalculateNewXPosition()
