@@ -28,7 +28,7 @@ public class GameManagerPuzzle : MonoBehaviour
                     Vector2 lastEmptySpacePosition = emptySpace.position;
                     TilesMoves thisTile = hit.transform.GetComponent<TilesMoves>();
                     emptySpace.position = hit.transform.position;
-                    hit.transform.position = lastEmptySpacePosition;
+                    thisTile.targetPosition = lastEmptySpacePosition;
                 }
             }
         }
@@ -36,7 +36,7 @@ public class GameManagerPuzzle : MonoBehaviour
 
     public void Scramblingpuzzles()
     {
-        for (int i = 0; i < 14; i++) 
+        for (int i = 0; i <= 14; i++) 
         {
             if (tiles[i] != null)
             {
