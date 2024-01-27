@@ -11,7 +11,7 @@ public class GameManagerPuzzle : MonoBehaviour
 
     private int emptySpace;
     [Header("exclemation factorial number")]
-    [SerializeField] private int size = 4;
+    [SerializeField] private int size = 3;
     //the amount of puzzle pieces is the product of the number of each positive number value below the number
     void Start()
     {
@@ -32,8 +32,8 @@ public class GameManagerPuzzle : MonoBehaviour
             {
                 Transform puzzlePiece = Instantiate(PrefabPieces, stuffTransform);
 
-                puzzlePiece.localPosition = new Vector3(-1 + (2 * width * col) + width,
-                                                        +1 - (2 * width * row) - width, 0);
+                puzzlePiece.localPosition = new Vector3((2 * width * col) + width,
+                                                        (2 * width * row) - width, 0);
                 puzzlePiece.localScale = ((2 * width) - gapboarder) * Vector3.one;
 
                 if ((row == size - 1) && (col == size - 1))
@@ -43,7 +43,11 @@ public class GameManagerPuzzle : MonoBehaviour
                 }
                 else
                 {
-                    ;
+                   // float gap = gapboarder / 2;
+                   // Mesh mesh = puzzlePiece.GetComponent<MeshFilter>().mesh;
+                   // Vector2[] coordinate = new Vector2[4];
+
+                   //uv[0] = new Vector2((width*col)+gap, );
                 }
             }
         }
