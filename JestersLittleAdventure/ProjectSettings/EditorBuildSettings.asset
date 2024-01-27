@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Archery.unity
     guid: d9578796f5187024f9d83348e4d66d38
   - enabled: 1
-    path: Assets/Scenes/Jougling.unity
+    path: Assets/Scenes/Juggling.unity
     guid: add4b4e44f7488742a5e0041afc472a7
   - enabled: 1
     path: Assets/Scenes/PicturePuzzle.unity
