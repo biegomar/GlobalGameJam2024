@@ -13,6 +13,8 @@ public sealed class GameManager : MonoBehaviour
     public int ActualArcheryHealth { get => actualArcheryHealth; set => actualArcheryHealth = Math.Max(0,value); }
     public int MaxArcheryHealth = 100;
 
+    public bool CanReturnToKing { get => archeryCompleted && jugglingCompleted && picturepuzzleCompleted; }
+
     public bool archeryCompleted;
     public bool jugglingCompleted;
     public bool picturepuzzleCompleted;
