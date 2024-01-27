@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 7846941486304318452, guid: d88dd577dc44ed046b6d9c6371cbc917, type: 3}
-  arrowFrequency: 0.6
+  arrowFrequency: 0.4
   arrowOffsetFromPlayer: 0.6
 --- !u!212 &1673002456
 SpriteRenderer:
@@ -1054,7 +1054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -379, y: -222}
   m_SizeDelta: {x: 52, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048067496
