@@ -8,6 +8,22 @@ TagManager:
   - Juggling
   - PicturePuzzle
   - ArcheryArrow
+  - Tile01
+  - Tile02
+  - Tile03
+  - Tile04
+  - Tile05
+  - Tile06
+  - Tile07
+  - Tile08
+  - Tile09
+  - Tile10
+  - Tile11
+  - Tile12
+  - Tile13
+  - Tile00
+  - Tile14
+  - Tile15
   layers:
   - Default
   - TransparentFX
