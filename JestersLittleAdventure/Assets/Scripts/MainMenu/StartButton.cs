@@ -8,6 +8,6 @@ public class StartButton : MonoBehaviour
     public void StartGame()
     {
         GameManager.Instance.Reset();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
 }
