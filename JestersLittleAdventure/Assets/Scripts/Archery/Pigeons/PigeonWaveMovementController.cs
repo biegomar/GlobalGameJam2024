@@ -11,9 +11,12 @@ public class PigeonWaveMovementController : MonoBehaviour
     private PigeonSpawnController enemyController;
     private PigeonItem pigeonItem;
     private IMovementStrategy activeMovementStrategy;
+    private bool invertPreFab;
+    private Vector3 originalScale;
 
     private void Start()
     {
+        this.invertPreFab = false;
         GameObject go = GameObject.Find("Pigeons");
         if (go != null)
         {
@@ -21,6 +24,7 @@ public class PigeonWaveMovementController : MonoBehaviour
             if (this.enemyController != null)
             {
                 this.pigeonItem = this.enemyController.Pigeons[gameObject.GetInstanceID()];
+                this.originalScale = this.pigeonItem.Enemy.transform.localScale;
             }
             else
             {
@@ -37,10 +41,21 @@ public class PigeonWaveMovementController : MonoBehaviour
     
     private void Update()
     {
+        float oldX = transform.position.x;
+        
         transform.position = new Vector3(
             CalculateNewXPosition(),
             CalculateNewYPosition(),
             transform.position.z);
+
+        if (oldX > transform.position.x)
+        {
+            this.pigeonItem.Enemy.transform.localScale = this.originalScale;
+        }
+        else
+        {
+            this.pigeonItem.Enemy.transform.localScale = new Vector3(-this.originalScale.x, this.originalScale.y, this.originalScale.z);
+        }
 
         TryToSwitchToXPingPongMovement();
     }
