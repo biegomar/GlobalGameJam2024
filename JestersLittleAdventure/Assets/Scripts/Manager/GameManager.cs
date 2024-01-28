@@ -34,6 +34,14 @@ public sealed class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public void Reset()
     {
         archeryCompleted = false;
