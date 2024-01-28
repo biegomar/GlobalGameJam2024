@@ -47,6 +47,6 @@ public class FireController : MonoBehaviour
     
     private bool IsFirePressed()
     {
-        return Input.GetKeyDown("space");
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow);
     }
 }

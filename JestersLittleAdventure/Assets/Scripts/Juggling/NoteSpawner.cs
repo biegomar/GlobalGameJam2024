@@ -23,7 +23,14 @@ public class NoteSpawner : MonoBehaviour
         if(currentWaveCooldown <= -3)
         {
             GameManager.Instance.jugglingCompleted = true;
-            SceneManager.LoadScene(1);
+            if (GameManager.Instance.CanReturnToKing)
+            {
+                SceneManager.LoadScene(1);
+            }
+            //else
+            //{
+                SceneManager.LoadScene(8);
+            //}
         }
     }
 
