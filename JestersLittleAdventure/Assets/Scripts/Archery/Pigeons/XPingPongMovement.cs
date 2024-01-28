@@ -20,6 +20,7 @@ namespace Archery.Pigeons
         {
             this.moveTime += Time.deltaTime;
             var delta = Mathf.PingPong(moveTime * this.pingPongSpeed, pingPongLength);
+            
             return this.startPosition.x < 0 ? this.startPosition.x + delta : this.startPosition.x - delta;
         }
 

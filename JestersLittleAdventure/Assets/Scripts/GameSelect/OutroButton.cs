@@ -15,7 +15,7 @@ public class OutroButton : MonoBehaviour
         }
     }
 
-    void PlayOutro()
+    public void PlayOutro()
     {
         SceneManager.LoadScene(6);
     }

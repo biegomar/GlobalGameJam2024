@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7272712148704512825, guid: 3343e05beef5470489e9b1f8ab77b0bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7272712148704512825, guid: 3343e05beef5470489e9b1f8ab77b0bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1323,7 +1323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1953128882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1953128880}
+        m_TargetAssemblyTypeName: OutroButton, Assembly-CSharp
+        m_MethodName: PlayOutro
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1953128882
 MonoBehaviour:
   m_ObjectHideFlags: 0
