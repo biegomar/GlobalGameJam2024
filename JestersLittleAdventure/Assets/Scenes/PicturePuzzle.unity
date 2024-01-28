@@ -747,6 +747,68 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   isInOriginalPos: 0
   number: 6
+--- !u!1 &355245692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355245694}
+  - component: {fileID: 355245693}
+  m_Layer: 0
+  m_Name: Tiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &355245693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355245692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6745aa5d10694a43a25735fea62ecbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: -1.5, y: 1.5, z: 0}
+  tiles:
+  - {fileID: 5973890168178725068, guid: c2137933616e2fa4b9d1b18890d19fbf, type: 3}
+  - {fileID: 1821632215405161091, guid: 6693ece668ee4444ba0cff1fffaae05f, type: 3}
+  - {fileID: 8002768468473734071, guid: fb7fa34f8ef808b42a8d3828bf0cc0d0, type: 3}
+  - {fileID: 4266485750194724696, guid: ee8194ab0d2cfd04cb536024edbfa253, type: 3}
+  - {fileID: 6136789814301547577, guid: b2d9b6b155586744b993d63c8d6dbdc5, type: 3}
+  - {fileID: 842868616422057406, guid: f32379d37fb57c344aee7b6002e6fdc8, type: 3}
+  - {fileID: 6941911758035982812, guid: 450fa107e65e5604abb2b5846d36462e, type: 3}
+  - {fileID: 8569597745518060577, guid: 4ae1f3743c22b1b43b2f59e456f71caf, type: 3}
+  - {fileID: 4341840691821572680, guid: d3bf59e075a96f04f8b631d8d664762f, type: 3}
+  - {fileID: 863423497625712338, guid: 55537135fc672734fa0ef5f1e185ed79, type: 3}
+  - {fileID: 6331459373311079906, guid: 7bcb641bc35eda34c8ca9a001e321dca, type: 3}
+  - {fileID: 457242720793634396, guid: 44b2f27244d014c4c9902082832cd7b0, type: 3}
+  - {fileID: 2842334394640585987, guid: 1872fa5df63884342a6b5b7a0f9bbd94, type: 3}
+  - {fileID: 9089958897021388947, guid: 87f83a07005c77b409d7167327eff52a, type: 3}
+  - {fileID: 1168966366679518774, guid: c50ede8c5a6db654991d834584ac6c5f, type: 3}
+  ShuffleRounds: 200
+--- !u!4 &355245694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355245692}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1957268413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &484139396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,7 +1025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &705415044
 Transform:
   m_ObjectHideFlags: 0
@@ -2077,6 +2139,38 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   isInOriginalPos: 0
   number: 12
+--- !u!1 &1957268412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957268413}
+  m_Layer: 0
+  m_Name: PlayGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957268413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957268412}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 355245694}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990937734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2310980313551465285, guid: 33fb16fb36a339649af49ae1c0ca41de, type: 3}
@@ -2384,4 +2478,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1846779596}
+  - {fileID: 1957268413}
   - {fileID: 705415044}

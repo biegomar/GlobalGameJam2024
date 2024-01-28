@@ -9,7 +9,7 @@ public class TextBox : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
         {
             nextText.gameObject.SetActive(true);
             this.gameObject.SetActive(false);

@@ -41,7 +41,11 @@ public class PigeonSpawnController : MonoBehaviour
             if (!this.Pigeons.Any())
             {
                 GameManager.Instance.archeryCompleted = true;
-                SceneManager.LoadScene(1);
+                if (GameManager.Instance.CanReturnToKing)
+                {
+                    SceneManager.LoadScene(1);
+                }
+                SceneManager.LoadScene(8);
             }
         }
     }

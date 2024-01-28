@@ -15,7 +15,7 @@ public class HealthController : MonoBehaviour
         
         if (GameManager.Instance.ActualArcheryHealth <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(7);
         }
     }
 }

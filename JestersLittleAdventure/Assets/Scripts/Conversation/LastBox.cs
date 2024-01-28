@@ -9,7 +9,7 @@ public class LastBox : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(scene);
         }

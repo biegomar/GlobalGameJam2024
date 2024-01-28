@@ -20,8 +20,7 @@ public class Juggler : MonoBehaviour
         text.text = "Current HP: " + jugglerHp;
         if (jugglerHp <= 0)
         {
-            //Time.timeScale = 0;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(7);
         }
     }
 

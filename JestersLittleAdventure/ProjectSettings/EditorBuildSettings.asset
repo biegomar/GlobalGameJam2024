@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outro.unity
     guid: 5d51d358d6b200447b2aa632df2d69bd
+  - enabled: 1
+    path: Assets/Scenes/Fail.unity
+    guid: 27506675fa4b5c840abfce44910ea852
+  - enabled: 1
+    path: Assets/Scenes/Success.unity
+    guid: 776a663cc2c57aa49a358923d40a9933
   m_configObjects: {}

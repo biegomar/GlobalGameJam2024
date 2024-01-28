@@ -5,7 +5,6 @@ using UnityEngine;
 public class Stopper : MonoBehaviour
 {
     [SerializeField] private LayerMask noteLayer;
-    [SerializeField] public int hp;
     [SerializeField] AudioSource fail;
     [SerializeField] Juggler juggler;
 
@@ -14,7 +13,7 @@ public class Stopper : MonoBehaviour
     {
         Collider2D note = Physics2D.OverlapBox(this.transform.position, new Vector2(0.3f, 2), 0, noteLayer);
 
-        if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if(note == null || note.gameObject.layer != 6)
             {
@@ -27,7 +26,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (note == null || note.gameObject.layer != 7)
             {
@@ -40,7 +39,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (note == null || note.gameObject.layer != 8)
             {
@@ -53,7 +52,7 @@ public class Stopper : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (note == null || note.gameObject.layer != 9)
             {
